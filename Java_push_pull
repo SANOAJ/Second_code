@@ -1,0 +1,101 @@
+package stack;
+
+public class stackususingArray
+{
+	private int arr[];
+	private int topindex;
+	
+	public stackususingArray()
+	{
+		arr = new int[5];
+		topindex =-1;	
+	}
+	
+	public int size()
+	{
+		return topindex+1;
+	}
+	
+	public boolean isEmpty()
+	{
+		return topindex == -1;		
+	}
+	
+	public void push(int elem)
+	{
+		if(topindex == arr.length-1)
+		{
+			doublecapacity();
+		}
+		topindex++;
+		arr[topindex] = elem;
+			
+	}
+	
+	private void doublecapacity() 
+	{
+		int temp[] = arr;
+		arr = new int[3*temp.length];
+		
+		for(int i=0;i<temp.length; i++)
+		{
+			arr[i] = temp[i];
+		}	
+	}
+	
+	public int top()
+	{
+		if(topindex == -1)
+		{
+			System.out.print("Stack is Empty");
+		}	
+		return arr[topindex];	
+	}
+	public int pop()
+	{
+		if(topindex == -1)
+		{
+			System.out.print("Stack is Empty");
+		}
+		
+		int temp = arr[topindex];
+		topindex--;
+		return temp;		
+	}
+	
+}
+
+public class stackFirst 
+{
+	public static void main(String[] args)
+	{
+		stackususingArray stack = new stackususingArray();	
+		int arr[] = {1,2,3,4,5,6,7,8,9,};	
+		for(int i=0; i<arr.length; i++)
+		{
+			stack.push(arr[i]);
+		}	
+		while (! stack.isEmpty())
+		{
+			System.out.print(stack.pop()+" ");		
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
